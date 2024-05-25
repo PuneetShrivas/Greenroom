@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
+  <img src="assets/logo.png" alt="logo" width="500" height="auto" />
   <h1>Greenroom: Your Backend Factory for AI-Powered Applications</h1>
   
   <p>
@@ -111,7 +111,8 @@ Update the configuration files in config/ according to your setup.
     ```bash
     See deployment instructions below.
 
-### :file_folder: Project Structure
+## :file_folder: Project Structure
+```bash
 greenroom/
 ├── app/               
 │   ├── api/            # FastAPI endpoints (RAG, custom)
@@ -125,11 +126,11 @@ greenroom/
 ├── tests/              # Test suite
 ├── README.md           # You are here!
 └── requirements.txt    # Project dependencies
-
-### :triangular_flag_on_post: Deployment
+ ```
+## :triangular_flag_on_post: Deployment
 Greenroom is optimized for Docker-based deployment. You can use a cloud platform (AWS, GCP, Azure) or your own infrastructure. Detailed instructions can be found in docs/deployment.md.
 
-### :wave: Contributing
+## :wave: Contributing
 Contributions are always welcome!
 
 See CONTRIBUTING.md for ways to get started.
