@@ -1,28 +1,69 @@
-# Greenroom: Your Backend Factory for AI-Powered Applications
+<div align="center">
+
+  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
+  <h1>Greenroom: Your Backend Factory for AI-Powered Applications</h1>
+  
+  <p>
+    A boilerplate project designed to accelerate the development of AI-powered applications and robust data pipelines.
+  </p>
+  
+<!-- Badges -->
+<p>
+  <a href="https://github.com/PuneetShrivas/Greenroom/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/PuneetShrivas/Greenroom" alt="contributors" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/PuneetShrivas/Greenroom" alt="last update" />
+  </a>
+  <a href="https://github.com/PuneetShrivas/Greenroom/network/members">
+    <img src="https://img.shields.io/github/forks/PuneetShrivas/Greenroom" alt="forks" />
+  </a>
+  <a href="https://github.com/PuneetShrivas/Greenroom/stargazers">
+    <img src="https://img.shields.io/github/stars/PuneetShrivas/Greenroom" alt="stars" />
+  </a>
+  <a href="https://github.com/PuneetShrivas/Greenroom/issues/">
+    <img src="https://img.shields.io/github/issues/PuneetShrivas/Greenroom" alt="open issues" />
+  </a>
+  <a href="https://github.com/PuneetShrivas/Greenroom/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/PuneetShrivas/Greenroom.svg" alt="license" />
+  </a>
+</p>
+   
+<h4>
+    <a href="https://github.com/your-username/greenroom/">View Demo</a>
+  <span> · </span>
+    <a href="https://github.com/your-username/greenroom">Documentation</a>
+  <span> · </span>
+    <a href="https://github.com/your-username/greenroom/issues/">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/your-username/greenroom/issues/">Request Feature</a>
+  </h4>
+</div>
+
+<br />
+
+<!-- Table of Contents -->
+# :notebook_with_decorative_cover: Table of Contents
+
+- [About the Project](#star2-about-the-project)
+  * [Tech Stack](#space_invader-tech-stack)
+  * [Key Features](#dart-key-features)
+- [Getting Started](#toolbox-getting-started)
+  * [Prerequisites](#bangbang-prerequisites)
+  * [Installation](#gear-installation)
+  * [Configuration](#wrench-configuration)
+  * [Running the Project](#running-running-the-project)
+- [Project Structure](#file_folder-project-structure)
+- [Deployment](#triangular_flag_on_post-deployment)
+- [Contributing](#wave-contributing)
+- [License](#warning-license)
+
+<!-- About the Project -->
+## :star2: About the Project
 
 Greenroom is a boilerplate project designed to accelerate the development of AI-powered applications and robust data pipelines. It seamlessly integrates a powerful tech stack to empower you with:
 
-## Rapid API Development
-Effortlessly build RESTful endpoints for:
-- Retrieval-Augmented Generation (RAG)
-- Custom backend processes
-- Database interactions (ChromaDB, Elasticsearch, Firestore)
-
-## Data Ingestion
-Streamline data collection via:
-- Web scraping with Selenium
-- Google Sheets integrations
-
-## Data Management
-- Powerful filtering and search with Elasticsearch
-- Automated database maintenance (cron jobs)
-
-## Deployment & Observability
-- Docker-based deployment for consistency
-- Robust logging and testing architecture
-
-## Tech Stack
-Greenroom leverages a cutting-edge stack to deliver a flexible and efficient development experience:
+### :space_invader: Tech Stack
 - **Python**: The foundation for our backend services.
 - **FastAPI**: A high-performance framework for building APIs.
 - **LangChain**: Simplifies working with language models and data sources.
@@ -32,29 +73,63 @@ Greenroom leverages a cutting-edge stack to deliver a flexible and efficient dev
 - **Google Sheets API**: Integrate with spreadsheets for data input/output.
 - **(Optional) Celery**: Task queue for background processes and scheduling.
 
-## Key Features
+### :dart: Key Features
+- **Rapid API Development**: Effortlessly build RESTful endpoints for Retrieval-Augmented Generation (RAG), custom backend processes, and database interactions.
+- **Data Ingestion**: Streamline data collection via web scraping with Selenium and Google Sheets integrations.
+- **Data Management**: Powerful filtering and search with Elasticsearch, automated database maintenance (cron jobs).
+- **Deployment & Observability**: Docker-based deployment for consistency, robust logging and testing architecture.
 - **Modular Structure**: Clearly organized modules for API endpoints, data pipelines, and database operations.
 - **Example Implementations**: Get started quickly with code examples for RAG, web scraping, data filtering, etc.
 - **Configuration**: Easily adjust settings for databases, logging, and scraping targets.
 - **Testing Framework**: Included tests ensure the reliability of your application.
 - **Scalability**: Designed to grow with your needs.
 
-## Getting Started
+## :toolbox: Getting Started
 
-1. **Clone**: `git clone https://github.com/your-username/greenroom.git`
-2. **Install**: `pip install -r requirements.txt`
-3. **Configure**: Update the configuration files in `config/`.
-4. **Run**:
-   - **Development**: `docker-compose up`
-   - **Production**: (See deployment instructions below)
+### :bangbang: Prerequisites
+This project requires Docker and Python installed on your local machine.
 
-## Project Structure
+### :gear: Installation
+1. Clone the repo:
+ -  ```bash
+ -  git clone https://github.com/your-username/greenroom.git
+2. Navigate to the project directory:
+ -   cd greenroom
+3. Install the required Python packages:
+ -   pip install -r requirements.txt
 
-## Deployment
-Greenroom is optimized for Docker-based deployment. You can use a cloud platform (AWS, GCP, Azure) or your own infrastructure. Detailed instructions can be found in `docs/deployment.md`.
+### :wrench: Configuration
+Update the configuration files in config/ according to your setup.
 
-## Contributing
-We welcome contributions! Please see `CONTRIBUTING.md` for guidelines.
+### :running: Running the Project
+1. For Development:
+ -   docker-compose up
+2. For Production:
+ -   See deployment instructions below.
 
-## License
-This project is free to use
+### :file_folder: Project Structure
+greenroom/
+├── app/               
+│   ├── api/            # FastAPI endpoints (RAG, custom)
+│   ├── pipelines/      # Data ingestion pipelines
+│   ├── services/       # Core business logic (database interactions, search)
+│   └── utils/          # Helper functions
+├── config/            # Configuration files
+├── data/               # Sample data or data storage
+├── docker-compose.yml  # For development environment
+├── Dockerfile          # For production builds
+├── tests/              # Test suite
+├── README.md           # You are here!
+└── requirements.txt    # Project dependencies
+
+### :triangular_flag_on_post: Deployment
+Greenroom is optimized for Docker-based deployment. You can use a cloud platform (AWS, GCP, Azure) or your own infrastructure. Detailed instructions can be found in docs/deployment.md.
+
+### :wave: Contributing
+Contributions are always welcome!
+
+See CONTRIBUTING.md for ways to get started.
+
+<!-- License -->
+:warning: License
+This project is licensed under the [Choose License] License.
