@@ -91,21 +91,21 @@ This project requires Docker and Python installed on your local machine.
 
 ### :gear: Installation
 1. Clone the repo:
- -  ```bash
- -  git clone https://github.com/your-username/greenroom.git
+   ```bash
+   git clone https://github.com/your-username/greenroom.git
 2. Navigate to the project directory:
- -   cd greenroom
+    cd greenroom
 3. Install the required Python packages:
- -   pip install -r requirements.txt
+    pip install -r requirements.txt
 
 ### :wrench: Configuration
 Update the configuration files in config/ according to your setup.
 
 ### :running: Running the Project
 1. For Development:
- -   docker-compose up
+    docker-compose up
 2. For Production:
- -   See deployment instructions below.
+    See deployment instructions below.
 
 ### :file_folder: Project Structure
 greenroom/
