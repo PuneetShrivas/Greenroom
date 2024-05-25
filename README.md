@@ -45,18 +45,15 @@
 <!-- Table of Contents -->
 # :notebook_with_decorative_cover: Table of Contents
 
-- [About the Project](#star2-about-the-project)
-  * [Tech Stack](#space_invader-tech-stack)
-  * [Key Features](#dart-key-features)
-- [Getting Started](#toolbox-getting-started)
-  * [Prerequisites](#bangbang-prerequisites)
-  * [Installation](#gear-installation)
-  * [Configuration](#wrench-configuration)
-  * [Running the Project](#running-running-the-project)
-- [Project Structure](#file_folder-project-structure)
-- [Deployment](#triangular_flag_on_post-deployment)
-- [Contributing](#wave-contributing)
-- [License](#warning-license)
+- [:notebook\_with\_decorative\_cover: Table of Contents](#notebook_with_decorative_cover-table-of-contents)
+  - [:star2: About the Project](#star2-about-the-project)
+    - [:space\_invader: Tech Stack](#space_invader-tech-stack)
+    - [:dart: Key Features](#dart-key-features)
+  - [:toolbox: Getting Started](#toolbox-getting-started)
+    - [:bangbang: Prerequisites](#bangbang-prerequisites)
+    - [:gear: Installation](#gear-installation)
+  - [:triangular\_flag\_on\_post: Deployment](#triangular_flag_on_post-deployment)
+  - [:wave: Contributing](#wave-contributing)
 
 <!-- About the Project -->
 ## :star2: About the Project
@@ -114,18 +111,36 @@ Update the configuration files in config/ according to your setup.
 ## :file_folder: Project Structure
 ```bash
 greenroom/
-├── app/               
-│   ├── api/            # FastAPI endpoints (RAG, custom)
-│   ├── pipelines/      # Data ingestion pipelines
-│   ├── services/       # Core business logic (database interactions, search)
-│   └── utils/          # Helper functions
-├── config/            # Configuration files
-├── data/               # Sample data or data storage
-├── docker-compose.yml  # For development environment
-├── Dockerfile          # For production builds
-├── tests/              # Test suite
-├── README.md           # You are here!
-└── requirements.txt    # Project dependencies
+├── Dockerfile                # Docker configuration for containerization
+├── README.md                 # Project documentation
+├── app/                      # Application source code
+│ ├── models/                 # Data models
+│ └── process/                # Data processing modules
+│ └── dress_description/      # Specific processing for dress descriptions
+│ ├── functions.py            # Core functions for processing
+│ ├── main.py                 # Main processing script
+│ └── routes.py               # API routes for dress description processing
+├── core/                     # Core functionalities and utilities
+│ ├── common_modules/         # Shared modules and tools
+│ ├── file_tools.py           # File handling utilities
+│ ├── image_tools.py          # Image processing utilities
+│ ├── json_tools.py           # JSON handling utilities
+│ └── routes_populate.py      # Utilities for populating routes
+│ └── server.py               # Server configuration and initialization
+├── data/                     # Data handling modules
+│ ├── firestore/              # Firestore database interactions
+│ └── main.py                 # Firestore operations script
+│ └── sheetsdb/               # Google Sheets interactions
+│ ├── blogs/                  # Blog-related data handling
+│ └── populate_blogs.py       # Script for populating blog data
+│ └── prompts/                # Prompt-related data handling
+│ ├── populate_prompts.py     # Script for populating prompt data
+│ └── prompts_sheets.csv      # CSV file for prompt data
+├── main.py                   # Main entry point for the application
+├── requirements.txt          # Project dependencies
+└── testing/                  # Testing modules
+└── manual_tests/             # Manual testing scripts
+└── test_endpoint.ipynb       # Jupyter notebook for endpoint testing
  ```
 ## :triangular_flag_on_post: Deployment
 Greenroom is optimized for Docker-based deployment. You can use a cloud platform (AWS, GCP, Azure) or your own infrastructure. Detailed instructions can be found in docs/deployment.md.
