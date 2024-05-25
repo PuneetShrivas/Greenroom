@@ -89,7 +89,7 @@ This project requires Docker and Python installed on your local machine.
 ### :gear: Installation
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/greenroom.git
+   git clone https://github.com/puneetshrivas/greenroom.git
 2. Navigate to the project directory:
     ```bash
     cd greenroom
@@ -111,36 +111,36 @@ Update the configuration files in config/ according to your setup.
 ## :file_folder: Project Structure
 ```bash
 greenroom/
-├── Dockerfile                # Docker configuration for containerization
-├── README.md                 # Project documentation
-├── app/                      # Application source code
-│ ├── models/                 # Data models
-│ └── process/                # Data processing modules
-│ └── dress_description/      # Specific processing for dress descriptions
-│ ├── functions.py            # Core functions for processing
-│ ├── main.py                 # Main processing script
-│ └── routes.py               # API routes for dress description processing
-├── core/                     # Core functionalities and utilities
-│ ├── common_modules/         # Shared modules and tools
-│ ├── file_tools.py           # File handling utilities
-│ ├── image_tools.py          # Image processing utilities
-│ ├── json_tools.py           # JSON handling utilities
-│ └── routes_populate.py      # Utilities for populating routes
-│ └── server.py               # Server configuration and initialization
-├── data/                     # Data handling modules
-│ ├── firestore/              # Firestore database interactions
-│ └── main.py                 # Firestore operations script
-│ └── sheetsdb/               # Google Sheets interactions
-│ ├── blogs/                  # Blog-related data handling
-│ └── populate_blogs.py       # Script for populating blog data
-│ └── prompts/                # Prompt-related data handling
-│ ├── populate_prompts.py     # Script for populating prompt data
-│ └── prompts_sheets.csv      # CSV file for prompt data
-├── main.py                   # Main entry point for the application
-├── requirements.txt          # Project dependencies
-└── testing/                  # Testing modules
-└── manual_tests/             # Manual testing scripts
-└── test_endpoint.ipynb       # Jupyter notebook for endpoint testing
+├── Dockerfile                          # Docker configuration for containerization
+├── README.md                           # Project documentation
+├── app/                                # Application source code
+│   ├── models/                         # Data models
+│   └── process/                        # Data processing modules
+│       └── dress_description/          # Specific processing for dress descriptions
+│           ├── functions.py            # Core functions for processing
+│           ├── main.py                 # Main processing script
+│           └── routes.py               # API routes for dress description processing
+├── core/                               # Core functionalities and utilities
+│   ├── common_modules/                 # Shared modules and tools
+│   │    ├── file_tools.py              # File handling utilities
+│   │    ├── image_tools.py             # Image processing utilities
+│   │    ├── json_tools.py              # JSON handling utilities
+│   │    └── routes_populate.py         # Utilities for populating routes
+│   └── server.py                       # Server configuration and initialization
+├── data/                               # Data handling modules
+│   ├── firestore/                      # Firestore database interactions
+│   │    └── main.py                    # Firestore operations script
+│   ├── sheetsdb/                       # Google Sheets interactions
+│   ├── blogs/                          # Blog-related data handling
+│   │    └── populate_blogs.py          # Script for populating blog data
+│   └── prompts/                        # Prompt-related data handling
+│       ├── populate_prompts.py         # Script for populating prompt data
+│       └── prompts_sheets.csv          # CSV file for prompt data
+├── main.py                             # Main entry point for the application
+├── requirements.txt                    # Project dependencies
+└── testing/                            # Testing modules
+    └── manual_tests/                   # Manual testing scripts
+        └── test_endpoint.ipynb         # Jupyter notebook for endpoint testing
  ```
 ## :triangular_flag_on_post: Deployment
 Greenroom is optimized for Docker-based deployment. You can use a cloud platform (AWS, GCP, Azure) or your own infrastructure. Detailed instructions can be found in docs/deployment.md.

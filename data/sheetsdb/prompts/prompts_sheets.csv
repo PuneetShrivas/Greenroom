@@ -1,2 +1,4 @@
 ,id,name,gid,app_name
-0,1,Clothing_Description,0,get_clothes_description
+0,1,Clothing_Description,0,dress_description
+1,2,Outfit_Review,1144068639,outfit_review
+2,3,Outfit_Recommendations,1819567853,recommendations
