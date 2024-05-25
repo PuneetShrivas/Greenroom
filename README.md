@@ -9,34 +9,34 @@
   
 <!-- Badges -->
 <p>
-  <a href="https://github.com/PuneetShrivas/Greenroom/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/PuneetShrivas/Greenroom" alt="contributors" />
+  <a href="https://github.com/puneetshrivas/greenroom/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/puneetshrivas/greenroom" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/PuneetShrivas/Greenroom" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/puneetshrivas/greenroom" alt="last update" />
   </a>
-  <a href="https://github.com/PuneetShrivas/Greenroom/network/members">
-    <img src="https://img.shields.io/github/forks/PuneetShrivas/Greenroom" alt="forks" />
+  <a href="https://github.com/puneetshrivas/greenroom/network/members">
+    <img src="https://img.shields.io/github/forks/puneetshrivas/greenroom" alt="forks" />
   </a>
-  <a href="https://github.com/PuneetShrivas/Greenroom/stargazers">
-    <img src="https://img.shields.io/github/stars/PuneetShrivas/Greenroom" alt="stars" />
+  <a href="https://github.com/puneetshrivas/greenroom/stargazers">
+    <img src="https://img.shields.io/github/stars/puneetshrivas/greenroom" alt="stars" />
   </a>
-  <a href="https://github.com/PuneetShrivas/Greenroom/issues/">
-    <img src="https://img.shields.io/github/issues/PuneetShrivas/Greenroom" alt="open issues" />
+  <a href="https://github.com/puneetshrivas/greenroom/issues/">
+    <img src="https://img.shields.io/github/issues/puneetshrivas/greenroom" alt="open issues" />
   </a>
-  <a href="https://github.com/PuneetShrivas/Greenroom/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/PuneetShrivas/Greenroom.svg" alt="license" />
+  <a href="https://github.com/puneetshrivas/greenroom/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/puneetshrivas/greenroom.svg" alt="license" />
   </a>
 </p>
    
 <h4>
-    <a href="https://github.com/PuneetShrivas/Greenroom/">View Demo</a>
+    <a href="https://github.com/puneetshrivas/greenroom/">View Demo</a>
   <span> · </span>
-    <a href="https://github.com/PuneetShrivas/Greenroom">Documentation</a>
+    <a href="https://github.com/puneetshrivas/greenroom">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/PuneetShrivas/Greenroom/issues/">Report Bug</a>
+    <a href="https://github.com/puneetshrivas/greenroom/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/PuneetShrivas/Greenroom/issues/">Request Feature</a>
+    <a href="https://github.com/puneetshrivas/greenroom/issues/">Request Feature</a>
   </h4>
 </div>
 
