@@ -30,13 +30,13 @@
 </p>
    
 <h4>
-    <a href="https://github.com/your-username/greenroom/">View Demo</a>
+    <a href="https://github.com/PuneetShrivas/Greenroom/">View Demo</a>
   <span> · </span>
-    <a href="https://github.com/your-username/greenroom">Documentation</a>
+    <a href="https://github.com/PuneetShrivas/Greenroom">Documentation</a>
   <span> · </span>
-    <a href="https://github.com/your-username/greenroom/issues/">Report Bug</a>
+    <a href="https://github.com/PuneetShrivas/Greenroom/issues/">Report Bug</a>
   <span> · </span>
-    <a href="https://github.com/your-username/greenroom/issues/">Request Feature</a>
+    <a href="https://github.com/PuneetShrivas/Greenroom/issues/">Request Feature</a>
   </h4>
 </div>
 
