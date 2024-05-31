@@ -12,7 +12,7 @@ def resize_image(image_path, max_dimension=1024):
                 new_height = max_dimension
                 new_width = int(width * (max_dimension / height))
 
-            img = img.resize((new_width, new_height), Image.ANTIALIAS)
+            img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
             # Save the resized image (optional, depending on your needs)
             img.save(image_path)
 
