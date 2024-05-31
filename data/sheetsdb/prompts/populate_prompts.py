@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import csv
 
 def populate_prompts():
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -15,7 +16,7 @@ def populate_prompts():
         df = pd.read_csv(sheet_link)
         sheet_path = file_path.replace("data\sheetsdb\prompts\prompts_sheets.csv","app\process\{0}\prompts.csv".format(row_dict["app_name"]))
         print("Writing to:",sheet_path)
-        df.to_csv(sheet_path)
+        df.to_csv(sheet_path, quoting=csv.QUOTE_NONNUMERIC)
         
 # populate_prompts()
 

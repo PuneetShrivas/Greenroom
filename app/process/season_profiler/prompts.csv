@@ -1,0 +1,30 @@
+"","Section","Description","Prompt","Last Stable Version"
+0,"runner","Prompt for getting all seasoning attributes","for this person's photo give the following properties in the json as given below:
+{
+  ""season"": """",
+  ""undertone"": """",
+  ""iris_color"": """",
+  ""hair_color"": """",
+  ""skin_color"": """",
+}
+options for each key is as below:
+skin undertone: neutral, cool, warm
+iris color: blue, dark brown, light brown, gray, green, black
+skin color: Fair, White, Golden, Brown, Beige, Dark Brown
+hair color: black, bald, brown_black, brown, blonde, gray, red
+season: [Clear Spring, Warm Spring, Clear Winter, Warm Autumn, Deep Autumn, Soft Autumn, Cool Winter, Soft Summer, Cool Summer, Light Summer, Light Spring, Deep Winter].
+Don't give any other text apart from the json object","for this person's photo give the following properties in the json as given below:
+{
+  ""season"": """",
+  ""undertone"": """",
+  ""iris_color"": """",
+  ""hair_color"": """",
+  ""skin_color"": """",
+}
+options for each key is as below:
+skin undertone: neutral, cool, warm
+iris color: blue, dark brown, light brown, gray, green, black
+skin color: Fair, White, Golden, Brown, Beige, Dark Brown
+hair color: black, bald, brown_black, brown, blonde, gray, red
+season: [Clear Spring, Warm Spring, Clear Winter, Warm Autumn, Deep Autumn, Soft Autumn, Cool Winter, Soft Summer, Cool Summer, Light Summer, Light Spring, Deep Winter].
+Don't give any other text apart from the json object"
