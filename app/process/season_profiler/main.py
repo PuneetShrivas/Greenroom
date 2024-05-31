@@ -62,6 +62,9 @@ class detect_season_from_image_openai(BaseModel):
         response.raise_for_status()
         attributes = json.loads(response.json()["choices"][0]["message"]["content"])
         usage = response.json()["usage"]
+        season = attributes["season"]
+        season_colors = get_suggested_colors(season)
+        attributes["season_colors"] = season_colors
         return {"response": attributes, "usage": usage}
     
     class Input(BaseModel):
