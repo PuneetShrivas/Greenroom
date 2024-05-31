@@ -14,6 +14,7 @@ def populate_prompts():
         print("Processing sheet: ",row_dict["name"])
         sheet_link = "https://docs.google.com/spreadsheets/export?id={0}&gid={1}&exportFormat=csv".format(prompts_sheet_id,row_dict["gid"])
         df = pd.read_csv(sheet_link)
+        print(file_path)
         sheet_path = file_path.replace("data\sheetsdb\prompts\prompts_sheets.csv","app\process\{0}\prompts.csv".format(row_dict["app_name"]))
         print("Writing to:",sheet_path)
         df.to_csv(sheet_path, quoting=csv.QUOTE_NONNUMERIC)
