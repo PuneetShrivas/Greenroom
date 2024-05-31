@@ -444,7 +444,7 @@ def create_payload(base64_image,prompt):
     }
 
 async def preprocess_image(file):
-    if file.content_type not in ["image/jpeg", "image/png"]:
+    if file.content_type not in ["image/jpeg", "image/png", "image/jpg"]:
         raise HTTPException(
             status_code=400, detail="File must be a JPEG or PNG image")
 
