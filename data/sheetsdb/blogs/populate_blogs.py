@@ -11,10 +11,10 @@ dotenv.load_dotenv()
 print(os.getenv("OPENAI_API_KEY"))
 def load_blogs_to_chromadb():
     sheet_id = "16_PW7w9yfvDSjoAvWtznwWYHr1PNUqCRbIb7W1g8EH4"
-    r = "https://docs.google.com/spreadsheets/export?id={}&exportFormat=csv".format(sheet_id)
+    r = "https://docs.google.com/spreadsheets/export?id={}&gid=0&exportFormat=csv".format(sheet_id)
     print("blogs sheet loaded")
     df = pd.read_csv(r)
-    n = 2
+    n = 35
     urls = df.iloc[:n, 0].to_numpy()
     descriptions = df.iloc[:n, 1].to_numpy()
     print("Loading blogs from URLs")
@@ -32,7 +32,7 @@ def load_blogs_to_chromadb():
     embeddings = OpenAIEmbeddings()
 
     # Create and store the vector store
-    persist_directory = './chromadb'
+    persist_directory = './././chromadb'
     
     # Delete the existing directory if it exists
     if os.path.exists(persist_directory):
