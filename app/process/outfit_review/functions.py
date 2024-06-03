@@ -25,11 +25,16 @@ def format_docs(docs):
 def format_chat_history(history_array):
     formatted_history = ""
     for message in history_array:
-        formatted_history += f"user: {message['user']}\n"
-        formatted_history += f"assistant: {message['assistant']}\n"
+        role = message['role']
+        content = message['content']
 
+        if role == "assistant":
+            content = content.replace("{", "").replace("}", "").strip()  # Remove extra curly braces and strip whitespace for consistency with the front-end formatting
+        
+        formatted_history += f"{role}: {content}\n"
+    
     # Remove trailing newline
-    return formatted_history.replace("{", "").replace("}", "").strip()
+    return formatted_history.strip()
 
 import requests
 
