@@ -21,10 +21,10 @@ df = pd.read_csv(get_abs_path("prompts.csv",__file__))
 prompts_by_section = df.set_index('Section')['Prompt'].to_dict()
 
 class get_questions_and_products(BaseModel): #called with query, history and dress description, should stream the response out, use RAG
-    async def process(self, products_n:int, questions_n:int,  response_strings:Queries=Body(...)):
+    async def process(self, products_n:int, questions_n:int, gender_female:bool, response_strings:Queries=Body(...)):
         try:
             prompts_dict = prompts_by_section
-            response = get_q_and_p(prompts_dict, response_strings, products_n, questions_n)
+            response = get_q_and_p(prompts_dict, response_strings, products_n, questions_n,gender_female)
             return {"response": response}
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))

@@ -6,8 +6,13 @@ import requests
 
 
 
-def create_payload(prompts_dict,queries,questions_n):
-    query = """{0} {1} {2}. Give {3} questions in the array.""".format(prompts_dict["context"]," ".join(queries),prompts_dict["runner"],questions_n)
+def create_payload(prompts_dict,queries,questions_n, gender_female):
+    gender_string=""
+    if gender_female:
+        gender_string="The user's gender is female"
+    else:
+        gender_string="The user's gender is male"
+    query = """{0} {1} {2}. {3}. Give {4} questions in the array.""".format(prompts_dict["context"]," ".join(queries),prompts_dict["runner"],gender_string,questions_n)
     print(query)
     return {
         "model": "gpt-3.5-turbo",
@@ -41,10 +46,13 @@ def get_questions(prompts_dict,queries,questions_n):
     questions=questions_string.replace("[","").replace("]","").replace("\n","")
     return questions.split(",")
 
-def get_products(queries,products_n):
+def get_products(queries,products_n,gender_female):
     try:
         host = 'https://search-cocoproductsearch-b26gqvdt6jzgl4npxobu5itiaq.aos.eu-north-1.on.aws'
-        index_name = 'fashion_mens_products'
+        if(gender_female):
+            index_name = 'fashion_womens_products'
+        else:
+            index_name='fashion_mens_products'
         username = 'cocosearchuser'
         password = 'Puneet@32'
         openai_api_key = ""  # Secure password input
@@ -96,9 +104,8 @@ def get_products(queries,products_n):
     except Exception as e:
         print(e)
 
-def get_q_and_p(prompts_dict, queries, products_n, questions_n):
-    questions= get_questions(prompts_dict,queries["chat_history"],questions_n)
-    print(questions)
-    products = get_products(queries["chat_history"],products_n)
+def get_q_and_p(prompts_dict, queries, products_n, questions_n, gender_female):
+    questions= get_questions(prompts_dict,queries["chat_history"],questions_n, gender_female)
+    products = get_products(queries["chat_history"],products_n, gender_female)
     return{"questions":questions,"products":products}
     
