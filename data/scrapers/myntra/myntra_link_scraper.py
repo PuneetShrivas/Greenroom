@@ -9,8 +9,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
-
-
+import openai
+import dotenv
+dotenv.load_dotenv()
+import os
+api_key = os.getenv("OPENAI_API_KEY")
 
 # --- Configuration ---
 base_url = "https://www.myntra.com/"
@@ -169,19 +172,19 @@ def get_current_page_url(driver):
 def process_rating_count(element):
     if element:
         text_content = element.text
-        rating_text = text_content.split()[0] # Get the first part (e.g., "20.2k")
+        rating_text = text_content.split()[0] 
 
         multiplier = 1
         if rating_text.endswith("k"):
             multiplier = 1000
-            rating_text = rating_text[:-1]  # Remove the 'k'
+            rating_text = rating_text[:-1] 
 
         try:
             rating_value = float(rating_text) * multiplier
-            return int(rating_value) 
+            return int(rating_value)
         except ValueError:
-            return None  # Return None if conversion fails
-    return None  # Return None if element not found
+            return 0  # Return 0 if conversion fails or invalid format
+    return 0  # Return 0 if element is not found
 
 def process_fit_type(element):
     if element:  # Check if element is found
@@ -203,7 +206,10 @@ def process_sizes(element):
 
 
 def return_float(element):
-    return float(element.text)
+    try:
+        return float(element.text) if element else 0.0
+    except ValueError:
+        return 0.0
 
 # --- Customizable Product Page Interface ---   
 product_details = {
@@ -286,18 +292,33 @@ def scrape_product_page(driver, product_url):
     
 def ingest_product(product_data):
     url = f"{opensearch_host}/{opensearch_index}/_doc/"
+    client = openai.OpenAI(api_key=api_key) 
 
+    # --- Generate Vector Embedding ---
+    text_to_embed = product_data["product_name"] + " " + product_data.get("description", "") 
+    vector_embedding = client.embeddings.create(
+        input=text_to_embed, 
+        model="text-embedding-ada-002"
+    ).data[0].embedding
+
+    product_data["vector_field"] = vector_embedding  # Add the vector to the product data
+    
+    # --- Ingest into OpenSearch ---
     try:
         response = requests.post(url, json=product_data, auth=HTTPBasicAuth(opensearch_username, opensearch_password))
         if response.status_code == 201:
-            logging.info(f"Record uploaded successfully: {response.json()['_id']}")
-            print(f"Record uploaded successfully: {response.json()['_id']}")
+            logging.info(f"Record with vector uploaded successfully: {response.json()['_id']}")
+            print(f"Record with vector uploaded successfully: {response.json()['_id']}")
         else:
             logging.error(f"Failed to upload record: {response.status_code} - {response.text}")
             print(f"Failed to upload record: {response.status_code} - {response.text}")
     except Exception as e:
         logging.error(f"Failed to upload record: {e}")
         print(f"Failed to upload record: {e}")
+
+
+
+starting_page = 44
 
 def scrape_category(driver, category, writer, proxy):
     if proxy:
@@ -309,11 +330,23 @@ def scrape_category(driver, category, writer, proxy):
         }
     url = base_url + category
     driver.get(url)
-    page_number = 1  # Start from page 1
+
+    # Navigate to the starting page
+    for _ in range(starting_page - 1):
+        try:
+            WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, "pagination-next"))
+            )
+            driver.find_element(By.CLASS_NAME, "pagination-next").click()  # Find and click again
+        except TimeoutException:
+            print(f"Starting page {starting_page} not found or timeout occurred in category {category}.")
+            return  # Skip this category if the starting page isn't found
+
+    
+    page_number = starting_page
 
     while True:
-        print(f"Processing page {page_number}")
-
+        print(f"Processing page {page_number} of category {category}")
         try:
             WebDriverWait(driver, 10).until(
                 EC.presence_of_all_elements_located((By.CLASS_NAME, "results-base"))
