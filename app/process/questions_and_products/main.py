@@ -1,10 +1,10 @@
-from typing import Dict
+from typing import Dict, List
 from fastapi import File, UploadFile, HTTPException, Body
 import requests
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from typing import List
-from .functions import get_review_from_user_id
+from .functions import get_q_and_p
 import sys
 sys.path.append("..")
 
@@ -14,26 +14,17 @@ import os
 import dotenv
 dotenv.load_dotenv()
 
-class ChatMessage(BaseModel):
-    role: str = Field(..., description="The role of the message sender: 'user' or 'assistant'")
-    content: str = Field(..., description="The content of the message")
-
-class ChatHistory(BaseModel):
-    chat_history: List[ChatMessage] = []
+class Queries(BaseModel):
+    chat_history: List = []
 
 df = pd.read_csv(get_abs_path("prompts.csv",__file__))
 prompts_by_section = df.set_index('Section')['Prompt'].to_dict()
 
-class get_review(BaseModel): #called with query, history and dress description, should stream the response out, use RAG
-    async def process(self, dress_description: str, query: str, user_id: str, lat:float, long:float, chat_history: ChatHistory = Body(
-        ...,
-        description="An array of chat messages in the format: [{'role': 'user', 'content': '...'}, {'role': 'assistant', 'content': '...'}]",
-    )):
+class get_questions_and_products(BaseModel): #called with query, history and dress description, should stream the response out, use RAG
+    async def process(self, products_n:int, questions_n:int,  response_strings:Queries=Body(...)):
         try:
             prompts_dict = prompts_by_section
-            lat_long = {"lat":lat, "long":long}
-            print(chat_history)
-            response = get_review_from_user_id(prompts_dict,query,dress_description,chat_history["chat_history"],user_id,lat_long)
+            response = get_q_and_p(prompts_dict, response_strings, products_n, questions_n)
             return {"response": response}
         except Exception as e:
             raise HTTPException(status_code=500, detail=str(e))

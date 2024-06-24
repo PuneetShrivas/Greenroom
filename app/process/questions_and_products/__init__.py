@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from .routes import internal_router
 from .main import *
-outfit_review_router = APIRouter()
-outfit_review_router.include_router(internal_router,tags=["outfit_review"])
+questions_products_router = APIRouter()
+questions_products_router.include_router(internal_router,tags=["questions_products"])
 
-__all__ = ["outfit_review_router","get_review"]
+__all__ = ["questions_products_router","get_questions_and_products"]

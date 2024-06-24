@@ -18,8 +18,6 @@ api_key = os.getenv("OPENAI_API_KEY")
 # --- Configuration ---
 base_url = "https://www.myntra.com/"
 product_categories = [
-    "men-topwear",
-    "men-ethnic-wear",
     "men-bottomwear",
     "men-innerwear",
     "men-plus-size",
@@ -43,13 +41,6 @@ logging.basicConfig(filename=log_filename, level=logging.ERROR,
                     format="%(asctime)s - %(levelname)s - %(message)s")
 
 proxy_list = [  # Add your proxy IP addresses and ports here
-    "34.87.84.105:80",
-    "4.155.2.13:9480",
-    "103.133.221.251:80",
-    "50.174.7.156:80",
-    "50.223.239.177:80",
-    "50.207.199.80:80",
-    "47.74.152.29:8888",
     "35.185.196.38:3128",
     "50.168.72.116:80",
     "20.210.113.32:8123",
@@ -318,7 +309,7 @@ def ingest_product(product_data):
 
 
 
-starting_page = 85
+starting_page = 1
 
 def scrape_category(driver, category, writer, proxy):
     if proxy:

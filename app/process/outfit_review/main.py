@@ -32,7 +32,6 @@ class get_review(BaseModel): #called with query, history and dress description, 
         try:
             prompts_dict = prompts_by_section
             lat_long = {"lat":lat, "long":long}
-            print(chat_history)
             response = get_review_from_user_id(prompts_dict,query,dress_description,chat_history["chat_history"],user_id,lat_long)
             return {"response": response}
         except Exception as e:
