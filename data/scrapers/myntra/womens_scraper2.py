@@ -305,7 +305,7 @@ def ingest_product(product_data):
 
 
 
-starting_page = 1
+starting_page = 4
 
 def scrape_category(driver, category, writer, proxy):
     if proxy:

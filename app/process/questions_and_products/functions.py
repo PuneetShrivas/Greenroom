@@ -30,14 +30,14 @@ def create_payload(prompts_dict,queries,questions_n, gender_female):
         "max_tokens": 2000,
     }
 
-def get_questions(prompts_dict,queries,questions_n):
+def get_questions(prompts_dict,queries,questions_n,gender_female):
     api_key = os.getenv("OPENAI_API_KEY")
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer {api_key}"
     }
     questions = []
-    payload = create_payload(prompts_dict,queries,questions_n)
+    payload = create_payload(prompts_dict,queries,questions_n,gender_female)
     response = requests.post(
             "https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
     response.raise_for_status()

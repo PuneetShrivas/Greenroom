@@ -19,8 +19,6 @@ api_key = os.getenv("OPENAI_API_KEY")
 base_url = "https://www.myntra.com/"
 product_categories = [
     "men-footwear",
-    "men-personal-care",
-    "men-sunglasses",
     "mens-watches",
     "men-sports-wear",
     "men-accessories",
@@ -310,7 +308,7 @@ def ingest_product(product_data):
 
 
 
-starting_page = 9
+starting_page = 25
 
 def scrape_category(driver, category, writer, proxy):
     if proxy:
