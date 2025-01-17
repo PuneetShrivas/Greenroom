@@ -13,7 +13,6 @@ def create_payload(prompts_dict,queries,questions_n, gender_female):
     else:
         gender_string="The user's gender is male"
     query = """{0} {1} {2}. {3}. Give {4} questions in the array.""".format(prompts_dict["context"]," ".join(queries),prompts_dict["runner"],gender_string,questions_n)
-    print(query)
     return {
         "model": "gpt-3.5-turbo",
         "messages": [
